@@ -1,0 +1,164 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { CheckCircle } from "lucide-react";
+
+const purchases = [
+  "Emily from New York just bought it!",
+  "Sophie from California grabbed the deal!",
+  "Ashley from Texas just purchased the eBook!",
+  "Linda from Florida completed her order!",
+  "Grace from Illinois confirmed her payment!",
+];
+
+function PurchaseNotification() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % purchases.length);
+        setVisible(true);
+      }, 500);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div
+      className={`fixed bottom-4 left-4 bg-white border-l-4 border-green-500 px-4 py-2 rounded-md shadow-md text-sm font-medium text-gray-800 transition-all duration-500 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+      }`}
+    >
+      {purchases[index]}
+    </div>
+  );
+}
+
+function CountdownTimer({ start = 300 }: { start?: number }) {
+  const [time, setTime] = useState(start);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime((t) => (t > 0 ? t - 1 : 0));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const minutes = String(Math.floor(time / 60)).padStart(2, "0");
+  const seconds = String(time % 60).padStart(2, "0");
+
+  return (
+    <p className="text-center text-sm text-red-600 font-semibold mt-2">
+      ⏳ This offer expires in {minutes}:{seconds}
+    </p>
+  );
+}
+
+export default function ResetSlimEN() {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const playSound = () => audioRef.current?.play();
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-800 p-6 relative">
+      <audio ref={audioRef} src="/success.mp3" preload="auto" />
+      <PurchaseNotification />
+
+      {/* Countdown at top */}
+      <div className="w-full bg-red-100 text-red-700 font-bold text-center py-2 mb-4">
+        LIMITED OFFER: Get Reset Slim™ now for just $7.99 – Time left: <CountdownTimer start={300} />
+      </div>
+
+      <div className="max-w-3xl mx-auto text-center space-y-6">
+        <h1 className="text-4xl font-bold text-pink-600">
+          RESET SLIM™ – Reset Your Body & Burn Fat Naturally
+        </h1>
+        <p className="text-lg text-gray-700">
+          100% Digital Method (PDF) – No strict diets, no gym, no suffering.
+        </p>
+
+        {/* Social proof */}
+        <p className="italic text-sm bg-white rounded-lg shadow-md p-3">
+          “I used Reset Slim for 14 days and lost 8 lbs. It's the simplest thing that ever worked for me!”
+          — <strong>Amanda T., Chicago</strong>
+        </p>
+
+        {/* Benefits */}
+        <div className="grid md:grid-cols-2 gap-4 text-left mt-8">
+          {[
+            "21-day meal plan with real food",
+            "How to handle emotional eating",
+            "Fat-burning food combinations",
+            "7-day metabolism reset guide",
+            "Tools to keep you motivated till the end",
+          ].map((item, i) => (
+            <div key={i} className="flex items-start space-x-2">
+              <CheckCircle className="text-green-500 mt-1" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Bonus offer section */}
+        <div className="mt-10 bg-yellow-100 p-4 rounded-xl">
+          <h3 className="text-xl font-semibold text-yellow-800">🎁 BONUS INCLUDED TODAY:</h3>
+          <ul className="list-disc list-inside text-left text-gray-800">
+            <li>🔥 7-Day Fat Flush Detox Plan</li>
+            <li>📱 Access to exclusive WhatsApp support group</li>
+            <li>📝 Printable Meal Tracker & Grocery List</li>
+            <li>🧠 Mindful Eating Techniques eBook</li>
+          </ul>
+        </div>
+
+        {/* How to buy + offer */}
+        <div className="bg-white shadow-lg p-6 mt-10 rounded-2xl space-y-4">
+          <h2 className="text-2xl font-semibold">💳 How to Get It:</h2>
+          <ul className="text-left text-gray-700 space-y-1">
+            <li>Instant PDF Download after payment</li>
+            <li>One-time payment, no subscription</li>
+            <li>Secure checkout via Payhip</li>
+          </ul>
+
+          <p className="text-lg text-center">
+            <span className="line-through text-gray-400 mr-2">$29.99</span>
+            <span className="text-pink-600 font-bold text-2xl">$7.99</span> today only!
+          </p>
+
+          {/* CTA Buttons */}
+          <a
+            href="https://payhip.com/b/VALUEEBOOK"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button
+              onClick={playSound}
+              className="bg-pink-600 hover:bg-pink-700 text-white w-full text-lg py-5 rounded-2xl shadow-xl"
+            >
+              👉 YES! I WANT RESET SLIM FOR $7.99
+            </button>
+          </a>
+          <CountdownTimer start={300} />
+        </div>
+
+        {/* Final testimonial */}
+        <p className="italic text-sm bg-white rounded-lg shadow-md p-3 mt-6">
+          “I honestly didn’t believe in PDFs... but I followed this and lost 13 lbs in 3 weeks. Game changer.”
+          — <strong>Rachel P., Miami</strong>
+        </p>
+
+        {/* FAQ Section */}
+        <div className="mt-10 text-left">
+          <h3 className="text-xl font-bold text-gray-800 mb-2">🙋 Frequently Asked Questions</h3>
+          <ul className="space-y-3 text-gray-700">
+            <li><strong>Is it safe?</strong> – Yes, it's based on balanced, natural food and habits.</li>
+            <li><strong>Is this a physical product?</strong> – No, it's 100% digital. You'll receive a PDF via email.</li>
+            <li><strong>Is there a refund?</strong> – Yes, we offer a 7-day satisfaction guarantee.</li>
+            <li><strong>How soon do I get access?</strong> – Immediately after payment.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
