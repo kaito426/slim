@@ -51,9 +51,9 @@ function CountdownTimer({ start = 300 }: { start?: number }) {
   const seconds = String(time % 60).padStart(2, "0");
 
   return (
-    <p className="text-center text-sm text-red-600 font-semibold mt-2">
-      ⏳ This offer expires in {minutes}:{seconds}
-    </p>
+    <span>
+      {minutes}:{seconds}
+    </span>
   );
 }
 
@@ -66,7 +66,6 @@ export default function ResetSlimEN() {
       <audio ref={audioRef} src="/success.mp3" preload="auto" />
       <PurchaseNotification />
 
-      {/* Countdown at top */}
       <div className="w-full bg-red-100 text-red-700 font-bold text-center py-2 mb-4">
         LIMITED OFFER: Get Reset Slim™ now for just $7.99 – Time left: <CountdownTimer start={300} />
       </div>
@@ -79,21 +78,13 @@ export default function ResetSlimEN() {
           100% Digital Method (PDF) – No strict diets, no gym, no suffering.
         </p>
 
-        {/* Social proof */}
         <p className="italic text-sm bg-white rounded-lg shadow-md p-3">
           “I used Reset Slim for 14 days and lost 8 lbs. It's the simplest thing that ever worked for me!”
           — <strong>Amanda T., Chicago</strong>
         </p>
 
-        {/* Benefits */}
         <div className="grid md:grid-cols-2 gap-4 text-left mt-8">
-          {[
-            "21-day meal plan with real food",
-            "How to handle emotional eating",
-            "Fat-burning food combinations",
-            "7-day metabolism reset guide",
-            "Tools to keep you motivated till the end",
-          ].map((item, i) => (
+          {["21-day meal plan with real food", "How to handle emotional eating", "Fat-burning food combinations", "7-day metabolism reset guide", "Tools to keep you motivated till the end"].map((item, i) => (
             <div key={i} className="flex items-start space-x-2">
               <CheckCircle className="text-green-500 mt-1" />
               <span>{item}</span>
@@ -101,7 +92,6 @@ export default function ResetSlimEN() {
           ))}
         </div>
 
-        {/* Bonus offer section */}
         <div className="mt-10 bg-yellow-100 p-4 rounded-xl">
           <h3 className="text-xl font-semibold text-yellow-800">🎁 BONUS INCLUDED TODAY:</h3>
           <ul className="list-disc list-inside text-left text-gray-800">
@@ -112,7 +102,6 @@ export default function ResetSlimEN() {
           </ul>
         </div>
 
-        {/* How to buy + offer */}
         <div className="bg-white shadow-lg p-6 mt-10 rounded-2xl space-y-4">
           <h2 className="text-2xl font-semibold">💳 How to Get It:</h2>
           <ul className="text-left text-gray-700 space-y-1">
@@ -126,7 +115,6 @@ export default function ResetSlimEN() {
             <span className="text-pink-600 font-bold text-2xl">$7.99</span> today only!
           </p>
 
-          {/* CTA Buttons */}
           <a
             href="https://payhip.com/b/VALUEEBOOK"
             target="_blank"
@@ -139,16 +127,17 @@ export default function ResetSlimEN() {
               👉 YES! I WANT RESET SLIM FOR $7.99
             </button>
           </a>
-          <CountdownTimer start={300} />
+
+          <p className="text-sm text-red-600 font-semibold">
+            ⏳ This offer expires in <CountdownTimer start={300} />
+          </p>
         </div>
 
-        {/* Final testimonial */}
         <p className="italic text-sm bg-white rounded-lg shadow-md p-3 mt-6">
           “I honestly didn’t believe in PDFs... but I followed this and lost 13 lbs in 3 weeks. Game changer.”
           — <strong>Rachel P., Miami</strong>
         </p>
 
-        {/* FAQ Section */}
         <div className="mt-10 text-left">
           <h3 className="text-xl font-bold text-gray-800 mb-2">🙋 Frequently Asked Questions</h3>
           <ul className="space-y-3 text-gray-700">
