@@ -1,140 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reset Slim™ - $7.99</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reset Slim™ – Burn Fat in 7 Days</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    .fade {
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .hidden-notification {
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: white;
+      border-left: 4px solid #10b981;
+      padding: 10px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      font-size: 14px;
+      font-weight: 500;
+      color: #1f2937;
       opacity: 0;
-      transform: translateY(8px);
+      transform: translateY(20px);
+      transition: all 0.5s ease-in-out;
     }
-    .visible-notification {
+    .notification.show {
       opacity: 1;
       transform: translateY(0);
     }
   </style>
 </head>
-<body class="bg-gradient-to-b from-white to-gray-100 text-gray-800 p-6 relative">
+<body class="bg-gradient-to-b from-white to-gray-100 text-gray-800 p-6">
 
-  <audio id="audio" src="/success.mp3" preload="auto"></audio>
+  <div class="notification" id="purchase-notification">Someone just bought Reset Slim™!</div>
 
-  <!-- Purchase Notification -->
-  <div id="notification" class="fixed bottom-4 left-4 bg-white border-l-4 border-green-500 px-4 py-2 rounded-md shadow-md text-sm font-medium text-gray-800 fade"></div>
+  <div class="max-w-3xl mx-auto space-y-8">
+    <div class="bg-red-100 text-red-700 font-bold text-center py-2 rounded">
+      🚨 LIMITED OFFER: Get Reset Slim™ now for just $7.99 – Results in 7 days or your money back!
+    </div>
 
-  <!-- Countdown Timer Banner -->
-  <div class="w-full bg-red-100 text-red-700 font-bold text-center py-2 mb-4">
-    LIMITED OFFER: Get Reset Slim™ now for just $7.99 – Time left: <span id="countdown"></span>
-  </div>
-
-  <div class="max-w-3xl mx-auto text-center space-y-6">
-    <h1 class="text-4xl font-bold text-pink-600">
-      RESET SLIM™ – Reset Your Body & Burn Fat Naturally
+    <h1 class="text-4xl font-bold text-pink-600 text-center">
+      🔥 Reset Slim™ – Melt Fat in 7 Days. Guaranteed.
     </h1>
-    <p class="text-lg text-gray-700">
-      100% Digital Method (PDF) – No strict diets, no gym, no suffering.
-    </p>
-    <p class="italic text-sm bg-white rounded-lg shadow-md p-3">
-      “I used Reset Slim for 14 days and lost 8 lbs. It's the simplest thing that ever worked for me!” — <strong>Amanda T., Chicago</strong>
+
+    <p class="text-lg text-center">
+      Tried diets? Failed at the gym? This is your FINAL chance to get slim fast – without starving or sweating.
     </p>
 
-    <div class="grid md:grid-cols-2 gap-4 text-left mt-8">
-      <div class="flex items-start space-x-2"><span class="text-green-500">✔️</span><span>21-day meal plan with real food</span></div>
-      <div class="flex items-start space-x-2"><span class="text-green-500">✔️</span><span>How to handle emotional eating</span></div>
-      <div class="flex items-start space-x-2"><span class="text-green-500">✔️</span><span>Fat-burning food combinations</span></div>
-      <div class="flex items-start space-x-2"><span class="text-green-500">✔️</span><span>7-day metabolism reset guide</span></div>
-      <div class="flex items-start space-x-2"><span class="text-green-500">✔️</span><span>Tools to keep you motivated till the end</span></div>
-    </div>
-
-    <div class="mt-10 bg-yellow-100 p-4 rounded-xl">
-      <h3 class="text-xl font-semibold text-yellow-800">🎁 BONUS INCLUDED TODAY:</h3>
+    <div class="bg-yellow-100 p-4 rounded-xl">
+      <h2 class="text-xl font-semibold text-yellow-800">🎁 EXCLUSIVE BONUS (today only):</h2>
       <ul class="list-disc list-inside text-left text-gray-800">
-        <li>🔥 7-Day Fat Flush Detox Plan</li>
-        <li>📱 Access to exclusive WhatsApp support group</li>
-        <li>📝 Printable Meal Tracker & Grocery List</li>
-        <li>🧠 Mindful Eating Techniques eBook</li>
+        <li>✅ 7-Day Fat Flush Detox</li>
+        <li>✅ <strong>Private Telegram Group</strong> with daily support and fat-loss challenges</li>
+        <li>✅ Meal Tracker + Grocery List (Printable)</li>
+        <li>✅ Mindful Eating Techniques eBook</li>
       </ul>
     </div>
 
-    <div class="bg-white shadow-lg p-6 mt-10 rounded-2xl space-y-4">
-      <h2 class="text-2xl font-semibold">💳 How to Get It:</h2>
-      <ul class="text-left text-gray-700 space-y-1">
-        <li>Instant PDF Download after payment</li>
-        <li>One-time payment, no subscription</li>
-        <li>Secure checkout via Payhip</li>
+    <div class="bg-white shadow-lg p-6 rounded-2xl space-y-4">
+      <h2 class="text-2xl font-semibold text-center">What You Get:</h2>
+      <ul class="list-disc list-inside text-gray-700 text-left">
+        <li>✔️ Full Reset Slim™ digital guide (PDF)</li>
+        <li>✔️ 21-day meal plan with real, cheap food</li>
+        <li>✔️ Fat-burning food combinations</li>
+        <li>✔️ 7-Day metabolism reset</li>
+        <li>✔️ Tools to break food anxiety</li>
       </ul>
 
-      <p class="text-lg text-center">
+      <p class="text-center text-lg">
         <span class="line-through text-gray-400 mr-2">$29.99</span>
-        <span class="text-pink-600 font-bold text-2xl">$7.99</span> today only!
+        <span class="text-pink-600 font-bold text-2xl">$7.99</span> – one-time payment
       </p>
 
-      <a href="https://payhip.com/b/VALUEEBOOK" target="_blank" rel="noopener noreferrer">
-        <button onclick="document.getElementById('audio').play();" class="bg-pink-600 hover:bg-pink-700 text-white w-full text-lg py-5 rounded-2xl shadow-xl">
+      <a href="https://payhip.com/b/VALUEEBOOK" target="_blank">
+        <button class="bg-pink-600 hover:bg-pink-700 text-white w-full text-lg py-5 rounded-2xl shadow-xl">
           👉 YES! I WANT RESET SLIM FOR $7.99
         </button>
       </a>
 
       <p class="text-sm text-red-600 font-semibold">
-        ⏳ This offer expires in <span id="countdown-bottom"></span>
+        ⏳ This offer expires in <span id="countdown-bottom">05:00</span>
       </p>
     </div>
 
-    <p class="italic text-sm bg-white rounded-lg shadow-md p-3 mt-6">
-      “I honestly didn’t believe in PDFs... but I followed this and lost 13 lbs in 3 weeks. Game changer.” — <strong>Rachel P., Miami</strong>
-    </p>
+    <div class="bg-white rounded-lg shadow-md p-3 italic text-sm">
+      “Didn’t believe in PDFs... but lost 13 lbs in 3 weeks. Game changer.” – <strong>Rachel P., Miami</strong>
+    </div>
 
-    <div class="mt-10 text-left">
+    <div class="bg-white rounded-lg shadow-md p-3 italic text-sm">
+      “Reset Slim changed my life. It’s so easy, I forgot I was even on a plan.” – <strong>Amanda T., Chicago</strong>
+    </div>
+
+    <div class="mt-10">
       <h3 class="text-xl font-bold text-gray-800 mb-2">🙋 Frequently Asked Questions</h3>
-      <ul class="space-y-3 text-gray-700">
-        <li><strong>Is it safe?</strong> – Yes, it's based on balanced, natural food and habits.</li>
-        <li><strong>Is this a physical product?</strong> – No, it's 100% digital. You'll receive a PDF via email.</li>
-        <li><strong>Is there a refund?</strong> – Yes, we offer a 7-day satisfaction guarantee.</li>
-        <li><strong>How soon do I get access?</strong> – Immediately after payment.</li>
+      <ul class="space-y-2 text-gray-700">
+        <li><strong>Is it safe?</strong> – Yes. 100% natural, food-based plan.</li>
+        <li><strong>Is this physical?</strong> – No. It’s a digital PDF with instant access.</li>
+        <li><strong>Refund?</strong> – Yes. 7-day money-back guarantee.</li>
+        <li><strong>When do I get access?</strong> – Immediately after payment.</li>
       </ul>
     </div>
   </div>
 
+  <!-- Scripts -->
   <script>
-    const purchases = [
+    // Countdown Timer
+    let time = 300;
+    const countdownElement = document.getElementById("countdown-bottom");
+
+    function updateCountdown() {
+      const minutes = String(Math.floor(time / 60)).padStart(2, "0");
+      const seconds = String(time % 60).padStart(2, "0");
+      countdownElement.textContent = `${minutes}:${seconds}`;
+      if (time > 0) time--;
+    }
+    setInterval(updateCountdown, 1000);
+
+    // Purchase Notifications
+    const messages = [
       "Emily from New York just bought it!",
       "Sophie from California grabbed the deal!",
       "Ashley from Texas just purchased the eBook!",
       "Linda from Florida completed her order!",
-      "Grace from Illinois confirmed her payment!",
+      "Grace from Illinois confirmed her payment!"
     ];
-    let idx = 0;
-    const notif = document.getElementById('notification');
-    function rotateNotifications() {
-      notif.classList.remove('visible-notification');
-      notif.classList.add('hidden-notification');
+    const notificationEl = document.getElementById("purchase-notification");
+    let messageIndex = 0;
+
+    function showNotification() {
+      notificationEl.textContent = messages[messageIndex];
+      notificationEl.classList.add("show");
       setTimeout(() => {
-        notif.textContent = purchases[idx];
-        idx = (idx + 1) % purchases.length;
-        notif.classList.remove('hidden-notification');
-        notif.classList.add('visible-notification');
-      }, 500);
+        notificationEl.classList.remove("show");
+      }, 3000);
+      messageIndex = (messageIndex + 1) % messages.length;
     }
-    notif.textContent = purchases[0];
-    notif.classList.add('visible-notification');
-    setInterval(rotateNotifications, 4000);
 
-    function startCountdown(seconds, idList) {
-      function update() {
-        const min = String(Math.floor(seconds / 60)).padStart(2, '0');
-        const sec = String(seconds % 60).padStart(2, '0');
-        idList.forEach(id => document.getElementById(id).textContent = `${min}:${sec}`);
-        if (seconds > 0) seconds--;
-      }
-      update();
-      setInterval(update, 1000);
-    }
-    startCountdown(300, ['countdown', 'countdown-bottom']);
+    setInterval(showNotification, 5000);
   </script>
-
 </body>
 </html>
